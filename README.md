@@ -1,4 +1,4 @@
-# My Shoe Store App 👟
+# My Shoe Store App 
 
 A Java-based console application for managing a shoe store relying on a SQL database backend.
 
