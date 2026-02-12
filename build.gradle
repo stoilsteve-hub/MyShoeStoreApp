@@ -26,3 +26,9 @@ sourceSets {
         }
     }
 }
+
+tasks.withType(JavaExec) {
+    // Suppress Gradle's own logging during execution
+    logging.captureStandardOutput LogLevel.QUIET
+    logging.captureStandardError  LogLevel.ERROR
+}
