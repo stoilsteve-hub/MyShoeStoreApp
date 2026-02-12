@@ -12,13 +12,16 @@ A Java-based console application for managing a shoe store relying on a SQL data
 erDiagram
     BRAND ||--o{ PRODUCT : "has"
     COLOR ||--o{ PRODUCT : "comes in"
-    SIZE ||--o{ PRODUCT : "available in"
-    CATEGORY ||--o{ PRODUCT_CATEGORY : "contains"
-    PRODUCT ||--o{ PRODUCT_CATEGORY : "belongs to"
-    PRODUCT ||--o{ ORDER_ITEM : "included in"
-    ORDERS ||--o{ ORDER_ITEM : "consists of"
+    SIZE  ||--o{ PRODUCT : "available in"
+
     CUSTOMER ||--o{ ORDERS : "places"
-    PRODUCT ||--o{ OUT_OF_STOCK : "logs"
+    ORDERS   ||--o{ ORDER_ITEM : "consists of"
+    PRODUCT  ||--o{ ORDER_ITEM : "included in"
+
+    CATEGORY ||--o{ PRODUCT_CATEGORY : "includes"
+    PRODUCT  ||--o{ PRODUCT_CATEGORY : "categorized as"
+
+    PRODUCT  ||--o{ OUT_OF_STOCK : "logs"
 
     BRAND {
         int brand_id PK
@@ -63,7 +66,7 @@ erDiagram
         int order_id PK
         int customer_id FK
         datetime order_date
-        string status
+        string status  "ACTIVE or PAID"
     }
 
     ORDER_ITEM {
@@ -83,6 +86,7 @@ erDiagram
         int product_id FK
         datetime out_time
     }
+
 ```
 
 ## Requirements
